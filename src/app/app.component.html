@@ -1,3 +1,9 @@
-<h1>
-  Test storage angular
-</h1>
+<section fxLayout="column" fxLayoutAlign="space-around center" fxFlex="100" fxLayoutGap="20px">
+  <div class="label" fxFlex="30">Archivo</div>
+  <div fxFlex="30"><input type="file" name="file" (change)="onFileSelect($event)"/></div>
+  <div fxFlex="30">
+    <button mat-flat-button color="primary" (click)="uploadFile()">Cargar</button>
+  </div>
+  <mat-progress-bar mode="determinate" [value]="uploadPercent | async"></mat-progress-bar>
+  <div class="label" fxFlex="30" *ngIf="completed">Archivo cargado</div>
+</section>
